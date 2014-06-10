@@ -65,4 +65,3 @@
    echo -e "please move onto the next step to initialize and sync your source.";
    echo -e "";
    echo -e ""
-
