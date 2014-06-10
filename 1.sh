@@ -1,15 +1,29 @@
 #!/bin/bash
-# start script
 
-# Created by Michael S Corigliano of Team AOSPAL (michael.s.corigliano@gmail.com)
-
-# This will create a build environment for building Android on Ubuntu 14.04 LTS 64
-# bit (x86_64) by installing the necessary packages and updating your operating system.
+#
+# Created by Michael S Corigliano for Team AOSPAL (michael.s.corigliano@gmail.com)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# This will create a build environment for building Paranoid SaberDroid Android
+# on Ubuntu 14.04 LTS 64 bit (x86_64) by installing the necessary packages and 
+# updating your operating system.
+#
 
 # 1) Update OS
    echo -e "Part 1 of 3";
    echo -e "Upgrading your OS...";
-   echo -e "Please enter your 'sudo' password when promped.";
+   echo -e "Please enter your 'sudo' password if promped.";
    echo -e "";
    echo -e ""
    sudo apt-get update
@@ -51,6 +65,4 @@
    echo -e "please move onto the next step to initialize and sync your source.";
    echo -e "";
    echo -e ""
-   
-# end script
 
