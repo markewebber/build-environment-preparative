@@ -18,7 +18,7 @@
 # This will run all steps
 #
 
-# 1) Update OS
+# You are so fucking lazy...
    echo -e "Running all steps to build Paranoid SaberDroid";
    echo -e "";
    echo -e ""
