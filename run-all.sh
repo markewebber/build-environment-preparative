@@ -20,7 +20,7 @@
 
 # You are so fucking lazy...
    echo -e "Running all steps to build Paranoid SaberDroid";
-   echo -e "";
+   echo -e "because you are a lazy fuck.";
    echo -e ""
    ./step-1.sh
    ./step-2.sh
