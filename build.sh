@@ -29,17 +29,17 @@
    PSD_MAINTENANCE=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MAINTENANCE := *' | sed  's/PSD_VERSION_MAINTENANCE := //g')
    PSD_TAG=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_TYPE := *' | sed  's/PSD_TYPE := //g')
 
-if [ -n "$PA_TAG" ]; then
-        VERSION=$MAJOR.$MINOR$MAINTENANCE-$TAG
-else
-        VERSION=$MAJOR.$MINOR$MAINTENANCE
-fi
+   if [ -n "$PA_TAG" ]; then
+      VERSION=$MAJOR.$MINOR$MAINTENANCE-$TAG
+   else
+      VERSION=$MAJOR.$MINOR$MAINTENANCE
+   fi
 
-if [ -n "$PSD_TAG" ]; then
-        PSD_VERSION=$PSD_MAINTENANCE-$PSD_TAG-$PSD_MAJOR.$PSD_MINOR
-else
-        PSD_VERSION=$PSD_MAINTENANCE-$PSD_MAJOR.$PSD_MINOR
-fi
+   if [ -n "$PSD_TAG" ]; then
+      PSD_VERSION=$PSD_MAINTENANCE-$PSD_TAG-$PSD_MAJOR.$PSD_MINOR
+   else
+      PSD_VERSION=$PSD_MAINTENANCE-$PSD_MAJOR.$PSD_MINOR
+   fi
 
 DEVICE="$1"
  
@@ -75,6 +75,7 @@ DEVICE="$1"
             *) invalid option
                ;;
          esac
+         clear
 
 # Decide whether to build clean or dirty
    echo "Build clean or dirty:
@@ -89,6 +90,7 @@ DEVICE="$1"
             *) invalid option
                ;;
          esac
+         clear
  
 # invoke the environment setup script to start the building process
    echo -e "Setting up build environment..."
@@ -108,11 +110,29 @@ DEVICE="$1"
             *) invalid option
                ;;
          esac
+         clear
  
 # execute the build while sending a log to 'build-logs'
-   echo -e "Starting build..."
-   make bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
-   clear
+   echo -e "Starting build...";
+   echo "Please select how many threads you would like to use to build:
+         1) -j4
+         2) -j8
+         3) -j18
+         4) -j32"
+      read n
+         case $n in
+            1) make -j4 bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
+               ;;
+            2) make -j8 bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
+               ;;
+            3) make -j18 bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
+               ;;
+            4) make -j32 bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
+               ;;
+            *) invalid option
+               ;;
+         esac
+         clear
  
 # we're done
    echo -e "Finished building Paranoid SaberDroid.";
