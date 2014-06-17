@@ -19,34 +19,34 @@
 #
 
 # Get build version
-   PA_MAJOR=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MAJOR := *' | sed  's/ROM_VERSION_MAJOR := //g')
-   PA_MINOR=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MINOR := *' | sed  's/ROM_VERSION_MINOR := //g')
-   PA_MAINTENANCE=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MAINTENANCE := *' | sed  's/ROM_VERSION_MAINTENANCE := //g')
-   PA_TAG=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_TAG := *' | sed  's/ROM_VERSION_TAG := //g')
-
-   PSD_MAJOR=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MAJOR := *' | sed  's/PSD_VERSION_MAJOR := //g')
-   PSD_MINOR=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MINOR := *' | sed  's/PSD_VERSION_MINOR := //g')
-   PSD_MAINTENANCE=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MAINTENANCE := *' | sed  's/PSD_VERSION_MAINTENANCE := //g')
-   PSD_TAG=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_TYPE := *' | sed  's/PSD_TYPE := //g')
-
-   if [ -n "$PA_TAG" ]; then
-      VERSION=$MAJOR.$MINOR$MAINTENANCE-$TAG
-   else
-      VERSION=$MAJOR.$MINOR$MAINTENANCE
-   fi
-
-   if [ -n "$PSD_TAG" ]; then
-      PSD_VERSION=$PSD_MAINTENANCE-$PSD_TAG-$PSD_MAJOR.$PSD_MINOR
-   else
-      PSD_VERSION=$PSD_MAINTENANCE-$PSD_MAJOR.$PSD_MINOR
-   fi
+#   PA_MAJOR=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MAJOR := *' | sed  's/ROM_VERSION_MAJOR := //g')
+#   PA_MINOR=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MINOR := *' | sed  's/ROM_VERSION_MINOR := //g')
+#   PA_MAINTENANCE=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MAINTENANCE := *' | sed  's/ROM_VERSION_MAINTENANCE := //g')
+#   PA_TAG=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_TAG := *' | sed  's/ROM_VERSION_TAG := //g')
+#
+#   PSD_MAJOR=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MAJOR := *' | sed  's/PSD_VERSION_MAJOR := //g')
+#   PSD_MINOR=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MINOR := *' | sed  's/PSD_VERSION_MINOR := //g')
+#   PSD_MAINTENANCE=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MAINTENANCE := *' | sed  's/PSD_VERSION_MAINTENANCE := //g')
+#   PSD_TAG=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_TYPE := *' | sed  's/PSD_TYPE := //g')
+#
+#   if [ -n "$PA_TAG" ]; then
+#      VERSION=$MAJOR.$MINOR$MAINTENANCE-$TAG
+#   else
+#      VERSION=$MAJOR.$MINOR$MAINTENANCE
+#   fi
+#
+#   if [ -n "$PSD_TAG" ]; then
+#      PSD_VERSION=$PSD_MAINTENANCE-$PSD_TAG-$PSD_MAJOR.$PSD_MINOR
+#   else
+#      PSD_VERSION=$PSD_MAINTENANCE-$PSD_MAJOR.$PSD_MINOR
+#   fi
 
 DEVICE="$1"
  
 # start
    echo -e "Building Paranoid SaberDroid for $DEVICE";
-   echo -e "Building AOSPAL $PSD_TAG $PSD_MAJOR.$PSD_MINOR for $DEVICE";
-   echo -e "$Start time: $(date)"
+#   echo -e "Building AOSPAL $PSD_TAG $PSD_MAJOR.$PSD_MINOR for $DEVICE";
+#   echo -e "$Start time: $(date)"
  
 # make 'build-logs' directory if it doesn't already exist
    echo -e "Making a 'build-logs' directory if you haven't already..."
@@ -121,18 +121,17 @@ DEVICE="$1"
          4) -j32"
       read n
          case $n in
-            1) make -j4 bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
+            1) make -j4 bacon 2>&1 | tee build-logs/psd_$DEVICE.txt
                ;;
-            2) make -j8 bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
+            2) make -j8 bacon 2>&1 | tee build-logs/psd_$DEVICE.txt
                ;;
-            3) make -j18 bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
+            3) make -j18 bacon 2>&1 | tee build-logs/psd_$DEVICE.txt
                ;;
-            4) make -j32 bacon 2>&1 | tee build-logs/psd_$DEVICE-$(date +%s.%N).txt
+            4) make -j32 bacon 2>&1 | tee build-logs/psd_$DEVICE.txt
                ;;
             *) invalid option
                ;;
          esac
-         clear
  
 # we're done
    echo -e "Finished building Paranoid SaberDroid.";
