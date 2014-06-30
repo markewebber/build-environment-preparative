@@ -2,6 +2,7 @@
 
 #
 # Created by Michael S Corigliano for Team AOSPAL (michael.s.corigliano@gmail.com)
+#
 # Parts of the original AOSPA build script have also been implemented in this script,
 # it can be found here: https://www.github.com/AOSPA/android_vendor_pa/build.sh
 #
@@ -17,36 +18,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-# Get build version
-#   PA_MAJOR=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MAJOR := *' | sed  's/ROM_VERSION_MAJOR := //g')
-#   PA_MINOR=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MINOR := *' | sed  's/ROM_VERSION_MINOR := //g')
-#   PA_MAINTENANCE=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_MAINTENANCE := *' | sed  's/ROM_VERSION_MAINTENANCE := //g')
-#   PA_TAG=$(cat $DIR/vendor/pa/vendor.mk | grep 'ROM_VERSION_TAG := *' | sed  's/ROM_VERSION_TAG := //g')
+# Example of use:
+# chmod +x build.sh
+# ./build.sh
 #
-#   PSD_MAJOR=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MAJOR := *' | sed  's/PSD_VERSION_MAJOR := //g')
-#   PSD_MINOR=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MINOR := *' | sed  's/PSD_VERSION_MINOR := //g')
-#   PSD_MAINTENANCE=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_VERSION_MAINTENANCE := *' | sed  's/PSD_VERSION_MAINTENANCE := //g')
-#   PSD_TAG=$(cat $DIR/vendor/psd/vendor.mk | grep 'PSD_TYPE := *' | sed  's/PSD_TYPE := //g')
-#
-#   if [ -n "$PA_TAG" ]; then
-#      VERSION=$MAJOR.$MINOR$MAINTENANCE-$TAG
-#   else
-#      VERSION=$MAJOR.$MINOR$MAINTENANCE
-#   fi
-#
-#   if [ -n "$PSD_TAG" ]; then
-#      PSD_VERSION=$PSD_MAINTENANCE-$PSD_TAG-$PSD_MAJOR.$PSD_MINOR
-#   else
-#      PSD_VERSION=$PSD_MAINTENANCE-$PSD_MAJOR.$PSD_MINOR
-#   fi
 
 DEVICE="$1"
  
 # start
    echo -e "Building Paranoid SaberDroid for $DEVICE";
-#   echo -e "Building AOSPAL $PSD_TAG $PSD_MAJOR.$PSD_MINOR for $DEVICE";
-#   echo -e "$Start time: $(date)"
  
 # make 'build-logs' directory if it doesn't already exist
    echo -e "Making a 'build-logs' directory if you haven't already..."
@@ -54,7 +34,7 @@ DEVICE="$1"
  
 # fetch latest sources
    echo -e "Fetching latest sources..."
-   echo "Please select how many threads you would like to use to sync source:
+   echo "How many sources would you like to sync with?
          1) -j4
          2) -j8
          3) -j16
@@ -78,7 +58,7 @@ DEVICE="$1"
          clear
 
 # Decide whether to build clean or dirty
-   echo "Build clean or dirty:
+   echo "Would you like to build clean or dirty?
          1) clean
          2) dirty"
       read n
@@ -98,7 +78,7 @@ DEVICE="$1"
    clear
 
 # decide to build odex or deodex
-   echo "Build odex or deodex:
+   echo "Would you like to build odex or deodex?
          1) odex
          2) deodex"
       read n
@@ -114,7 +94,7 @@ DEVICE="$1"
  
 # execute the build while sending a log to 'build-logs'
    echo -e "Starting build...";
-   echo "Please select how many threads you would like to use to build:
+   echo "How many CPU core threads would you like to build with?
          1) -j4
          2) -j8
          3) -j18
@@ -134,6 +114,8 @@ DEVICE="$1"
          esac
  
 # we're done
-   echo -e "Finished building Paranoid SaberDroid.";
-   echo -e "If for some reason your build failed,";
+   echo -e "Finished building Paranoid SaberDroid."
+   echo -e "If for some reason your build failed,"
    echo -e "please check the 'build-logs' directory to figure out why."
+   echo -e ""
+   echo -e ""
