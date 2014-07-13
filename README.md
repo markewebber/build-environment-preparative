@@ -12,6 +12,7 @@ Use these commands in your terminal:
 
     cd
     mkdir -p psd
+    sudo apt-get install git -y
     git clone git://github.com/mikecriggs/psd_bash-scripts psd
     cd psd
     chmod +x step-1.sh && chmod +x step-2.sh && chmod +x build.sh
