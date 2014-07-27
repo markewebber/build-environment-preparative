@@ -21,7 +21,7 @@
 #
 
 # 1) Update OS
-   echo -e "Part 1 of 4";
+   echo -e "Part 1 of 5";
    echo -e "Upgrading your OS...";
    echo -e "Please enter your 'sudo' password if promped.";
    echo -e "";
@@ -32,7 +32,7 @@
    clear
 
 # 2) Install packages
-   echo -e "Part 2 of 4";
+   echo -e "Part 2 of 5";
    echo -e "Installing packages needed for building...";
    echo -e "Please enter your 'sudo' password if promped.";
    echo -e "";
@@ -49,7 +49,7 @@
    clear
    
 # 3) Install and configure JDK 6u45+
-   echo -e "Part 3 of 4";
+   echo -e "Part 3 of 5";
    echo -e "Installing and configuring JDK 6...";
    echo -e "Please enter your 'sudo' password when promped.";
    echo -e "Please press 'enter' when prompted.";
@@ -60,7 +60,25 @@
    sudo apt-get install oracle-java6-installer -y
    clear
    
+# 4) Make '~/bin' directory to house the repo tool
+      echo -e "Part 4 of 5";
+   echo -e "Making '~/bin' directory to house the repo tool...";
+   echo -e "Please enter your 'sudo' password if prompted.";
+   echo -e "";
+   echo -e ""
+   mkdir -p ~/bin
+   PATH=~/bin:$PATH
+   clear
 
+# 2) Download repo tool to '~/bin/repo' and give it the proper permissions
+   echo -e "Part 5 of 5";
+   echo -e "Downloading repo tool to '~/bin/repo' and giving it the proper permissions...";
+   echo -e "Please enter your 'sudo' password if prompted.";
+   echo -e "";
+   echo -e ""
+   curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+   chmod a+x ~/bin/repo
+   clear
    
 # Let the user know that the script has finished
    echo -e "The script has finished setting up your android build environment,";
