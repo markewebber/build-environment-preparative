@@ -70,7 +70,7 @@
    PATH=~/bin:$PATH
    clear
 
-# 2) Download repo tool to '~/bin/repo' and give it the proper permissions
+# 5) Download repo tool to '~/bin/repo' and give it the proper permissions
    echo -e "Part 5 of 5";
    echo -e "Downloading repo tool to '~/bin/repo' and giving it the proper permissions...";
    echo -e "Please enter your 'sudo' password if prompted.";
