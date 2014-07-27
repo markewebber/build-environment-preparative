@@ -44,7 +44,7 @@
    libgl1-mesa-dev g++-multilib mingw32 tofrodos \
    python-markdown libxml2-utils xsltproc zlib1g-dev:i386 \
    android-tools-adb android-tools-fastboot libcloog-isl-dev \
-   texinfo curl gcc-multilib libcap-dev libz4* \
+   texinfo curl git gcc-multilib libcap-dev libz4* \
    sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
    clear
    
