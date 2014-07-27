@@ -60,15 +60,7 @@
    sudo apt-get install oracle-java6-installer -y
    clear
    
-#  4) Download repo tool to /bin and give permissions
-   echo -e "Part 4 of 4";
-   echo -e "Downloading repo tool to '/bin/repo' and giving it the proper permissions...";
-   echo -e "Please enter your 'sudo' password if prompted.";
-   echo -e "";
-   echo -e ""
-   curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /bin/repo
-   chmod a+x /bin/repo
-   clear
+
    
 # Let the user know that the script has finished
    echo -e "The script has finished setting up your android build environment,";
