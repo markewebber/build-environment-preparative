@@ -26,7 +26,7 @@ yellow='\e[1;33m'
 nocolor='\e[0m'
 
 # 1) Update OS
-   echo -e " $bold $yellow Part 1 of 5 $nocolor $normal ";
+   echo -e " $bold $yellow Part 1 of 6 $nocolor $normal ";
    echo -e " $bold $yellow Upgrading your OS... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password if promped. $nocolor $normal ";
    echo -e "";
@@ -37,7 +37,7 @@ nocolor='\e[0m'
    clear
 
 # 2) Install packages
-   echo -e " $bold $yellow Part 2 of 5 $nocolor $normal ";
+   echo -e " $bold $yellow Part 2 of 6 $nocolor $normal ";
    echo -e " $bold $yellow Installing packages needed for building... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password if promped. $nocolor $normal ";
    echo -e "";
@@ -54,7 +54,7 @@ nocolor='\e[0m'
    clear
    
 # 3) Install and configure JDK 6u45+
-   echo -e " $bold $yellow Part 3 of 5";
+   echo -e " $bold $yellow Part 3 of 6";
    echo -e " $bold $yellow Installing and configuring JDK 6... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password when promped. $nocolor $normal ";
    echo -e " $bold $yellow Please press 'enter' when prompted. $nocolor $normal ";
@@ -66,7 +66,7 @@ nocolor='\e[0m'
    clear
    
 # 4) Make '~/bin' directory to house the repo tool
-      echo -e " $bold $yellow Part 4 of 5";
+      echo -e " $bold $yellow Part 4 of 6";
    echo -e " $bold $yellow Making '~/bin' directory to house the repo tool... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password if prompted. $nocolor $normal ";
    echo -e "";
@@ -76,7 +76,7 @@ nocolor='\e[0m'
    clear
 
 # 5) Download repo tool to '~/bin/repo' and give it the proper permissions
-   echo -e " $bold $yellow Part 5 of 5 $nocolor $normal ";
+   echo -e " $bold $yellow Part 5 of 6 $nocolor $normal ";
    echo -e " $bold $yellow Downloading repo tool to '~/bin/repo' and giving it the proper permissions... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password if prompted. $nocolor $normal ";
    echo -e "";
@@ -84,6 +84,21 @@ nocolor='\e[0m'
    curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
    chmod a+x ~/bin/repo
    clear
+   
+# 6) Configure Git
+
+echo -e " $bold $yellow Part 6 of 6 $nocolor $normal ";
+echo -e " $bold $yellow Configuring Git... $nocolor $normal ";
+echo -e " $bold $yellow Please enter your full name: $nocolor $normal ";
+
+read name
+git config --global user.name "$name"
+
+echo -e " $bold $yellow Please enter your email: $nocolor $normal ";
+
+read email
+git config --global user.email $email
+
    
 # Let the user know that the script has finished
    echo -e " $bold $yellow The script has finished setting up your android build environment, $nocolor $normal ";
