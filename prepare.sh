@@ -43,13 +43,8 @@ nocolor='\e[0m'
    echo -e "";
    echo -e ""
    sudo apt-get update
-   sudo apt-get install git gnupg flex bison gperf build-essential \
-   zip curl libc6-dev g++ libncurses5-dev:i386 x11proto-core-dev \
-   libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \
-   libgl1-mesa-dev gperf lib32z1 g++-multilib mingw32 tofrodos \
-   python-markdown libxml2-utils xsltproc zlib1g-dev:i386 \
-   android-tools-adb android-tools-fastboot libcloog-isl-dev \
-   texinfo liblz4-tool curl git schedtool gcc-multilib libcap-dev libz4* \
+   sudo apt-get install git gnupg flex bison gperf build-essential zip curl libc6-dev g++ libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev gperf lib32z1 g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386 android-tools-adb android-tools-fastboot libcloog-isl-dev texinfo liblz4-tool curl git schedtool gcc-multilib libcap-dev libz4*
+
    sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
    clear
    
