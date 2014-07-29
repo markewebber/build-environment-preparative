@@ -46,7 +46,7 @@ nocolor='\e[0m'
    sudo apt-get install git gnupg flex bison gperf build-essential \
    zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \
    libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \
-   libgl1-mesa-dev g++-multilib mingw32 tofrodos \
+   libgl1-mesa-dev gperf lib32z1 g++-multilib mingw32 tofrodos \
    python-markdown libxml2-utils xsltproc zlib1g-dev:i386 \
    android-tools-adb android-tools-fastboot libcloog-isl-dev \
    texinfo curl git schedtool gcc-multilib libcap-dev libz4* \
