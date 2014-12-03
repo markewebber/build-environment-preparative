@@ -43,21 +43,22 @@ nocolor='\e[0m'
    echo -e "";
    echo -e ""
    sudo apt-get update
-   sudo apt-get install git gnupg flex bison gperf build-essential zip lzop curl libc6-dev g++ libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev gperf lib32z1 g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386 android-tools-adb android-tools-fastboot libcloog-isl-dev texinfo liblz4-tool curl git schedtool gcc-multilib libcap-dev libz4*
+   sudo apt-get install git gnupg ccache lzop flex bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 libc6-dev lib32bz2-1.0 lib32ncurses5-dev x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 lib32z1-dev libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc libreadline6-dev lib32readline-gplv2-dev libncurses5-dev bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev lib32bz2-dev squashfs-tools pngcrush schedtool dpkg-dev   sudo apt-get install git gnupg flex bison gperf build-essential zip lzop curl libc6-dev g++ libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev gperf lib32z1 g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386 android-tools-adb android-tools-fastboot libcloog-isl-dev texinfo liblz4-tool curl git schedtool gcc-multilib libcap-dev libz4*
 
    sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
    clear
+
+# 2.5) remove old packages if they exsist
+  sudo apt-get purge openjdk-\* icedtea-\* icedtea6-\*
    
 # 3) Install and configure JDK 6u45+
    echo -e " $bold $yellow Part 3 of 6";
-   echo -e " $bold $yellow Installing and configuring JDK 6... $nocolor $normal ";
+   echo -e " $bold $yellow Installing and configuring OpenJDK 7... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password when promped. $nocolor $normal ";
    echo -e " $bold $yellow Please press 'enter' when prompted. $nocolor $normal ";
    echo -e "";
    echo -e ""
-   sudo apt-add-repository ppa:webupd8team/java
-   sudo apt-get update
-   sudo apt-get install oracle-java6-installer -y
+   sudo apt-get install openjdk-7-jdk -y
    clear
    
 # 4) Make '~/bin' directory to house the repo tool
@@ -79,20 +80,27 @@ nocolor='\e[0m'
    curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
    chmod a+x ~/bin/repo
    clear
-   
+
 # 6) Configure Git
 
-echo -e " $bold $yellow Part 6 of 6 $nocolor $normal ";
-echo -e " $bold $yellow Configuring Git... $nocolor $normal ";
-echo -e " $bold $yellow Please enter your full name: $nocolor $normal ";
+   echo -e " $bold $yellow Part 6 of 6 $nocolor $normal ";
+   echo -e " $bold $yellow Configuring Git... $nocolor $normal ";
+   echo -e " $bold $yellow Please enter your full name: $nocolor $normal ";
 
-read name
-git config --global user.name "$name"
+   read name
+   git config --global user.name "$name"
 
-echo -e " $bold $yellow Please enter your email: $nocolor $normal ";
+  echo -e " $bold $yellow Please enter your email: $nocolor $normal ";
 
-read email
-git config --global user.email $email
+  read email
+  git config --global user.email $email
+
+# 7) BASH.RC
+   echo -e " $bold $yellow Part 6.5 $nocolor $normal ";
+   echo -e " $bold $yellow Setting up External Bash.rc... $nocolor $normal ";
+   sudo nano ~/.bashrc
+   export PATH=~/bin:$PATH
+   source ~/.bashrc
 
    
 # Let the user know that the script has finished
