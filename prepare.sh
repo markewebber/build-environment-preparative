@@ -26,7 +26,7 @@ yellow='\e[1;33m'
 nocolor='\e[0m'
 
 # 1) Update OS
-   echo -e " $bold $yellow Part 1 of 6 $nocolor $normal ";
+   echo -e " $bold $yellow Part 1 of 7 $nocolor $normal ";
    echo -e " $bold $yellow Upgrading your OS... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password if promped. $nocolor $normal ";
    echo -e "";
@@ -37,7 +37,7 @@ nocolor='\e[0m'
    clear
 
 # 2) Install packages
-   echo -e " $bold $yellow Part 2 of 6 $nocolor $normal ";
+   echo -e " $bold $yellow Part 2 of 7 $nocolor $normal ";
    echo -e " $bold $yellow Installing packages needed for building... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password if promped. $nocolor $normal ";
    echo -e "";
@@ -49,10 +49,11 @@ nocolor='\e[0m'
    clear
 
 # 2.5) remove old packages if they exsist
+  echo -e " $bold $yellow Part 2.5 of 7 $nocolor $normal ";
   sudo apt-get purge openjdk-\* icedtea-\* icedtea6-\*
    
-# 3) Install and configure JDK 6u45+
-   echo -e " $bold $yellow Part 3 of 6";
+# 3) Install and configure Open JDK7+
+   echo -e " $bold $yellow Part 3 of 7";
    echo -e " $bold $yellow Installing and configuring OpenJDK 7... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password when promped. $nocolor $normal ";
    echo -e " $bold $yellow Please press 'enter' when prompted. $nocolor $normal ";
@@ -62,7 +63,7 @@ nocolor='\e[0m'
    clear
    
 # 4) Make '~/bin' directory to house the repo tool
-      echo -e " $bold $yellow Part 4 of 6";
+      echo -e " $bold $yellow Part 4 of 7";
    echo -e " $bold $yellow Making '~/bin' directory to house the repo tool... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password if prompted. $nocolor $normal ";
    echo -e "";
@@ -72,7 +73,7 @@ nocolor='\e[0m'
    clear
 
 # 5) Download repo tool to '~/bin/repo' and give it the proper permissions
-   echo -e " $bold $yellow Part 5 of 6 $nocolor $normal ";
+   echo -e " $bold $yellow Part 5 of 7 $nocolor $normal ";
    echo -e " $bold $yellow Downloading repo tool to '~/bin/repo' and giving it the proper permissions... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your 'sudo' password if prompted. $nocolor $normal ";
    echo -e "";
@@ -83,7 +84,7 @@ nocolor='\e[0m'
 
 # 6) Configure Git
 
-   echo -e " $bold $yellow Part 6 of 6 $nocolor $normal ";
+   echo -e " $bold $yellow Part 6 of 7 $nocolor $normal ";
    echo -e " $bold $yellow Configuring Git... $nocolor $normal ";
    echo -e " $bold $yellow Please enter your full name: $nocolor $normal ";
 
@@ -96,7 +97,7 @@ nocolor='\e[0m'
   git config --global user.email $email
 
 # 7) BASH.RC
-   echo -e " $bold $yellow Part 6.5 $nocolor $normal ";
+   echo -e " $bold $yellow Part 7 $nocolor $normal ";
    echo -e " $bold $yellow Setting up External Bash.rc... $nocolor $normal ";
    sudo nano ~/.bashrc
    export PATH=~/bin:$PATH
